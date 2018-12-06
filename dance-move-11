@@ -1,0 +1,24 @@
+var left_dancer;
+var right_dancer;
+var new_dancer;
+
+whenSetup(function () {
+  setBackgroundEffectWithPalette("kaleidoscope", "warm");
+  left_dancer = makeNewDanceSprite("CAT", left_dancer, {x: 100, y: 200});
+  right_dancer = makeNewDanceSprite("ROBOT", right_dancer, {x: 300, y: 200});
+});
+
+whenKey("left", function () {
+  doMoveLR(left_dancer, MOVES.Dab, -1);
+});
+
+whenKey("right", function () {
+  new_dancer = makeNewDanceSprite("ALIEN", new_dancer, {x: randomNumber(50, 350), y: randomNumber(50, 350)});
+});
+
+everySeconds(2, "measures", function () {
+  changeMoveLR(new_dancer, MOVES.Dab, -1);
+});
+
+whenKey("up", function () {
+  });
